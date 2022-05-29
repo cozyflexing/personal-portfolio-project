@@ -6,7 +6,9 @@
         <h1>Blog</h1>
         <h2>Alen has written x blogs</h2>
     </div>
-
+    <div class="text-right">
+        <a href="{% url 'home' %}">Home</a>
+    </div>
     <div class="text-left">
         {% for blog in blogs %}
 
