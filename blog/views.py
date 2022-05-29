@@ -6,9 +6,13 @@ from .models import Blog
 
 def blogs_home(request):
 
+    blog_count = Blog.objects.count()
+
     blogs = Blog.objects.order_by("-date")[:5]
 
-    return render(request, "blog/blogs_home.html", {"blogs": blogs})
+    return render(
+        request, "blog/blogs_home.html", {"blogs": blogs, "blog_count": blog_count}
+    )
 
 
 def detail(request, blog_id):
