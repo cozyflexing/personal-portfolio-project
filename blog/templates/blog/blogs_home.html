@@ -1,23 +1,13 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<h1>Blog</h1>
+<h2>Alen has written {{ blog_count }} blog{{ blogs.count|pluralize }} </h2>
 
-<div class="container">
+<a href="{% url 'home' %}">Home</a>
+{% for blog in blogs %}
 
-    <div class="text-center">
-        <h1>Blog</h1>
-        <h2>Alen has written {{ blog_count }} blog{{ blogs.count|pluralize }} </h2>
-    </div>
-    <div class="text-right">
-        <a href="{% url 'home' %}">Home</a>
-    </div>
-    <div class="text-left">
-        {% for blog in blogs %}
-
-            <a href="{% url 'blog:detail' blog.id %}"><h1>{{ blog.title }}</h1></a>
-            <h3 class="text-muted">{{ blog.date|date:'M d Y' }}</h3>
-            <h3>{{ blog.description|striptags|truncatechars:100 }}</h3>
+<a href="{% url 'blog:detail' blog.id %}"><h1>{{ blog.title }}</h1></a>
+<h3>{{ blog.date|date:'M d Y' }}</h3>
+<h3>{{ blog.description|striptags|truncatechars:100 }}</h3>
     
-        {% endfor %}
-    </div>
+{% endfor %}
 
-</div>
 

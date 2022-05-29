@@ -1,43 +1,34 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+{% extends 'portfolio/base.html' %}
 
+{% block content %}
+
+<h1 >Alen's Portfolio</h1>
 {% load static %}
 
-<div class="container">
+<a href="{% url 'blog:blogs_home' %}">
+    <h3>Blog</h3>
+</a>
 
-    <h1 class="text-center">Alen's Portfolio</h1>
+<img height="512" width="512" src="{% static 'portfolio/Neogen_Space_Monkeys_#613.png' %}" alt="">
 
-    <a class="text-right" href="{% url 'blog:blogs_home' %}">
-        <h3>Blog</h3>
-    </a>
+{% for project in projects %}
 
-    <div class="text-center">
-        <img height="512" width="512" class="rounded" src="{% static 'portfolio/Neogen_Space_Monkeys_#613.png' %}" alt="">
-    </div>
-    
-    <div class="text-left">
+    <h2>{{ project.title }}</h2>
         
-        {% for project in projects %}
-
-            <h2>{{ project.title }}</h2>
+    <h3>{{ project.description }}</h3>
         
-            <h3>{{ project.description }}</h3>
-        
-            {% if project.url %}
+    {% if project.url %}
 
-                <a href="{{ project.url }}">
-                    <img height="256" width="256" src="{{ project.image.url }}">
-                </a>
+        <a href="{{ project.url }}">
+            <img height="256" width="256" src="{{ project.image.url }}">
+        </a>
 
-            {% endif %}
+    {% endif %}
         
-            {% if not project.url %}
-        
-                <img height="256" width="256" src="{{ project.image.url }}">
-        
-            {% endif %}
-    
-        {% endfor %}
-    </div>
+        {% if not project.url %}
+            <img height="256" width="256" src="{{ project.image.url }}">
+        {% endif %}
 
-</div>
+{% endfor %}
 
+{% endblock content %}
