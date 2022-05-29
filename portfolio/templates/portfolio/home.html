@@ -1,13 +1,19 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
+{% load static %}
+
 <div class="container">
 
     <h1 class="text-center">Alen's Portfolio</h1>
-    
+
     <a class="text-right" href="{% url 'blogs_home' %}">
         <h3>Blog</h3>
     </a>
 
+    <div class="text-center">
+        <img height="512" width="512" class="rounded" src="{% static 'portfolio/Neogen_Space_Monkeys_#613.png' %}" alt="">
+    </div>
+    
     <div class="text-left">
         
         {% for project in projects %}
