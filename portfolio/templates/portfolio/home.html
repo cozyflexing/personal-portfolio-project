@@ -6,22 +6,29 @@
     <h1>Alen's Portfolio</h1>
 </div>
 <div class="text-center">
-    <img height="700" width="700" src="{% static 'portfolio/Neogen_Space_Monkeys_#613.png' %}" alt="">
+    <img height="700" width="700" src="{% static 'portfolio/3D_Bored_Ape_Club_#460.png' %}" alt="">
 </div>
-
-{% for project in projects %}
-    <h2>{{ project.title }}</h2>
-    <h3>{{ project.description }}</h3>
-
-    {% if project.url %}
-        <a href="{{ project.url }}">
-            <img height="256" width="256" src="{{ project.image.url }}">
-        </a>
-    {% endif %}
-    {% if not project.url %}
-        <img height="256" width="256" src="{{ project.image.url }}">
-    {% endif %}
-{% endfor %}
-
-
+<div class="container border-bottom border-dark border-3">
+    <h1>Portfolio</h1>
+</div>
+<br>
+<div class="container">
+    <div class="row row-cols-lg-3 g-2 g-lg-2">
+        {% for project in projects %}
+        <div class="p-2">
+            {% if project.url %}
+            <a target="_blank" href="{{ project.url }}">
+                <img class="img-thumbnail" src="{{ project.image.url }}">
+            </a>
+            {% endif %}
+            {% if not project.url %}
+            <img class="img-thumbnail" src="{{ project.image.url }}">
+            {% endif %}
+            <h2>{{ project.title }}</h2>
+            <p class="fs-5">{{ project.description }}</p>
+            <br>
+          </div>
+        {% endfor %}
+    </div>
+  </div>
 {% endblock content %}
