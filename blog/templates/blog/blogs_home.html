@@ -3,7 +3,6 @@
 <h1>Blog</h1>
 <h2>Alen has written {{ blog_count }} blog{{ blogs.count|pluralize }} </h2>
 
-<a href="{% url 'home' %}">Home</a>
 {% for blog in blogs %}
 
 <a href="{% url 'blog:detail' blog.id %}"><h1>{{ blog.title }}</h1></a>
