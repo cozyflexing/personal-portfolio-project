@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block content %}
-
+<br><br>
 <div class="text-center">
     <img height="700" width="700" src="{% static 'portfolio/3D_Bored_Ape_Club_#460.png' %}" alt="">
 </div>
-<br>
+<br><br>
 <div class="container text-center text-dark">
     <h1>Just a random guy named Alen Iriskic who happens to be a business founder and a computer engineer student. I also like to hoop!</h1><br><br>
 </div>
@@ -28,7 +28,6 @@
             {% endif %}
             <h2>{{ project.title }}</h2>
             <p class="fs-5">{{ project.description }}</p>
-            <br>
           </div>
         {% endfor %}
     </div>
